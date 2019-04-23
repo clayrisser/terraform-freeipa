@@ -1,25 +1,12 @@
-data "aws_ami" "centos" {
-  most_recent = true
-  owners      = ["aws-marketplace"]
-  filter {
-    name   = "name"
-    values = ["centos-7"]
-  }
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-}
 data "template_file" "user_data" {
   template = "${file("user-data.sh")}"
   vars {
     domain = "${var.domain}"
-    ip     = "${aws_eip.ipa.public_ip}"
     name   = "${var.name}"
   }
 }
 resource "aws_instance" "ipa" {
-  ami                         = "${data.aws_ami.centos.image_id}"
+  ami                         = "${var.ami}"
   associate_public_ip_address = true
   instance_type               = "${var.instance_type}"
   key_name                    = "${aws_key_pair.ssh_key.key_name}"

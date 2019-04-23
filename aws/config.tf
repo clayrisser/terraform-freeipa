@@ -1,21 +1,29 @@
-# terraform {
-#   backend "s3" {
-#     bucket = "<SOME_BUCKET>"
-#     key    = "<SOME_DOMAIN>"
-#     region = "<SOME_REGION>"
-#   }
-# }
-# data "terraform_remote_state" "network" {
-#   backend = "s3"
-#   config {
-#     bucket = "<SOME_BUCKET>"
-#     key    = "${var.domain}"
-#     region = "${var.region}"
-#   }
-# }
+terraform {
+  backend "s3" {
+    bucket = "codejamninja-terraform"
+    key    = "codejam.ninja"
+    region = "us-west-2"
+  }
+}
+data "terraform_remote_state" "network" {
+  backend = "s3"
+  config {
+    bucket = "codejamninja-terraform"
+    key    = "${var.domain}"
+    region = "${var.region}"
+  }
+}
+provider "aws" {
+  region                  = "${var.region}"
+  shared_credentials_file = "~/.aws/credentials"
+}
 variable "region" {
   type    = "string"
   default = "us-west-2"
+}
+variable "ami" {
+  type    = "string"
+  default = "ami-01ed306a12b7d1c96"
 }
 variable "name" {
   type    = "string"
@@ -30,5 +38,6 @@ variable "instance_type" {
   default = "t2.medium"
 }
 variable "domain" {
-  type = "string"
+  type    = "string"
+  default = "codejam.ninja"
 }
