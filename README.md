@@ -1,8 +1,8 @@
-# terraform-rancher
+# terraform-freeipa
 
-[![GitHub stars](https://img.shields.io/github/stars/codejamninja/terraform-rancher.svg?style=social&label=Stars)](https://github.com/codejamninja/terraform-rancher)
+[![GitHub stars](https://img.shields.io/github/stars/codejamninja/terraform-freeipa.svg?style=social&label=Stars)](https://github.com/codejamninja/terraform-freeipa)
 
-> Initialize rancher 2 with terraform
+> Initialize freeipa with terraform
 
 Please ★ this repo if you found it useful ★ ★ ★
 
@@ -12,7 +12,7 @@ Please ★ this repo if you found it useful ★ ★ ★
 * Automatically registers servers with a supported DNS provider
     * Route 53
     * CloudFlare
-* Adds letsencrypt certificate to Rancher
+* Adds letsencrypt certificate to Freeipa
 
 
 ## Dependencies
@@ -31,10 +31,10 @@ Please ★ this repo if you found it useful ★ ★ ★
 aws configure
 ```
 
-### Setup Orchestration Platform
+### Setup Freeipa Platform
 
 ```sh
-cd orch
+cd ipa
 terraform init
 terraform apply
 ```
@@ -43,29 +43,29 @@ If you want to use [route53](https://aws.amazon.com/route53) instead of [cloudfl
 set the `cloudflare_token` to `0`.
 
 Make sure you save the generated rsa private key so you can ssh into the server.
-It will be located at `orch/orch_<your_domain>_rsa`.
+It will be located at `ipa/ipa_<your_domain>_rsa`.
 
 
 ## Support
 
-Submit an [issue](https://github.com/codejamninja/terraform-rancher/issues/new)
+Submit an [issue](https://github.com/codejamninja/terraform-freeipa/issues/new)
 
 
 ## Contributing
 
-Review the [guidelines for contributing](https://github.com/codejamninja/terraform-rancher/blob/master/CONTRIBUTING.md)
+Review the [guidelines for contributing](https://github.com/codejamninja/terraform-freeipa/blob/master/CONTRIBUTING.md)
 
 
 ## License
 
-[MIT License](https://github.com/codejamninja/terraform-rancher/blob/master/LICENSE)
+[MIT License](https://github.com/codejamninja/terraform-freeipa/blob/master/LICENSE)
 
 [Jam Risser](https://codejam.ninja) © 2018
 
 
 ## Changelog
 
-Review the [changelog](https://github.com/codejamninja/terraform-rancher/blob/master/CHANGELOG.md)
+Review the [changelog](https://github.com/codejamninja/terraform-freeipa/blob/master/CHANGELOG.md)
 
 
 ## Credits
