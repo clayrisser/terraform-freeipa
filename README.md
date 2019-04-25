@@ -12,7 +12,7 @@ Please ★ this repo if you found it useful ★ ★ ★
 * Automatically registers servers with a supported DNS provider
     * Route 53
     * CloudFlare
-* Adds letsencrypt certificate to Freeipa
+* Adds letsencrypt certificate to freeipa
 
 
 ## Dependencies
