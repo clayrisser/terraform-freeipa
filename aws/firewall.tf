@@ -11,14 +11,20 @@ resource "aws_security_group" "ipa" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
+    from_port   = 53
+    to_port     = 53
+    protocol    = "TCP"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
     from_port   = 80
     to_port     = 80
     protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
-    from_port   = 443
-    to_port     = 443
+    from_port   = 88
+    to_port     = 88
     protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -29,27 +35,21 @@ resource "aws_security_group" "ipa" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "TCP"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
     from_port   = 636
     to_port     = 636
     protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
-    from_port   = 7389
-    to_port     = 7389
-    protocol    = "TCP"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  ingress {
-    from_port   = 7389
-    to_port     = 7389
+    from_port   = 53
+    to_port     = 53
     protocol    = "UDP"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  ingress {
-    from_port   = 88
-    to_port     = 88
-    protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
@@ -59,9 +59,9 @@ resource "aws_security_group" "ipa" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
-    from_port   = 464
-    to_port     = 464
-    protocol    = "TCP"
+    from_port   = 123
+    to_port     = 123
+    protocol    = "UDP"
     cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {

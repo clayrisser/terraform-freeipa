@@ -9,7 +9,7 @@ data "terraform_remote_state" "network" {
   backend = "s3"
   config {
     bucket = "codejamninja-terraform"
-    key    = "${var.domain}"
+    key    = "${var.name}.${var.domain}/ipa"
     region = "${var.region}"
   }
 }
@@ -35,7 +35,7 @@ variable "volume_size" {
 }
 variable "instance_type" {
   type    = "string"
-  default = "t2.medium"
+  default = "t2.large"
 }
 variable "domain" {
   type    = "string"
