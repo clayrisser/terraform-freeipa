@@ -39,9 +39,7 @@ variable "instance_type" {
 }
 variable "domain" {
   type    = "string"
-  default = "codejam.ninja"
 }
 variable "email" {
   type    = "string"
-  default = "tech@codejam.ninja"
 }
