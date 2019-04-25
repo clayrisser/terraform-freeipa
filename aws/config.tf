@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "codejamninja-terraform"
-    key    = "codejam.ninja"
+    key    = "ipa.codejam.ninja/ipa"
     region = "us-west-2"
   }
 }
@@ -35,7 +35,7 @@ variable "volume_size" {
 }
 variable "instance_type" {
   type    = "string"
-  default = "t2.large"
+  default = "t2.medium"
 }
 variable "domain" {
   type    = "string"

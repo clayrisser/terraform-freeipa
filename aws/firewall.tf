@@ -47,6 +47,24 @@ resource "aws_security_group" "ipa" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
+    from_port   = 7389
+    to_port     = 7389
+    protocol    = "TCP"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "TCP"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    from_port   = 8443
+    to_port     = 8443
+    protocol    = "TCP"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
     from_port   = 53
     to_port     = 53
     protocol    = "UDP"
