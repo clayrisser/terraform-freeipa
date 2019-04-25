@@ -3,7 +3,6 @@
 sudo su
 
 export EMAIL="${email}"
-export HOSTNAME="$PUBLIC_IPV4 ${name}.${domain} ${name}.${domain}"
 export PUBLIC_IPV4=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)
 export WORKDIR="/opt/freeipa-letsencrypt"
 
@@ -11,7 +10,8 @@ yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarc
 yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional
 yum update -y
 yum install -y freeipa-server ipa-server-dns certbot git
-sed -i "1s/^/$HOSTNAME\n/" /etc/hosts
+_HOSTNAME="$PUBLIC_IPV4 ${name}.${domain} ${name}.${domain}"
+sed -i "1s/^/$_HOSTNAME\n/" /etc/hosts
 ipa-server-install \
      --auto-forwarders \
      --hostname ${name}.${domain} \
