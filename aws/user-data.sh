@@ -20,6 +20,7 @@ ipa-server-install \
      -a password -p password \
      -n ${name}.${domain} \
      -r ${upper(name)}.${upper(domain)}
+authconfig --enablemkhomedir --update
 mkdir -p /opt
 git clone https://github.com/codejamninja/freeipa-letsencrypt.git /opt/freeipa-letsencrypt
 cd $WORKDIR
