@@ -15,12 +15,12 @@ sed -i "1s/^/$_HOSTNAME\n/" /etc/hosts
 ipa-server-install \
      --auto-forwarders \
      --hostname ${name}.${domain} \
+     --mkhomedir \
      --setup-dns \
      -U \
      -a password -p password \
      -n ${name}.${domain} \
      -r ${upper(name)}.${upper(domain)}
-authconfig --enablemkhomedir --update
 mkdir -p /opt
 git clone https://github.com/codejamninja/freeipa-letsencrypt.git /opt/freeipa-letsencrypt
 cd $WORKDIR

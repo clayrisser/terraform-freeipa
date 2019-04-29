@@ -34,7 +34,7 @@ aws configure
 ### Setup Freeipa Platform
 
 ```sh
-cd ipa
+cd aws
 terraform init
 terraform apply
 ```
